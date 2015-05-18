@@ -17,7 +17,7 @@ var Example = React.createClass({
         };
 
         return (
-            <Graph width="500" height="500">
+            <Graph className="graph" width="500" height="500">
                 {["bar", "baz"].map(toVertex)}
                 <Vertex width={70} height={30}
                         key={"foo"}

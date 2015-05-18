@@ -37,8 +37,6 @@ function(window, React, dagre) {
 
             React.Children.forEach(this.props.children, function(child) {
                 if (child.type === Vertex) {
-                    console.log(child);
-
                     g.setNode(child.key, { label: child, width: child.props.width, height: child.props.height });
 
                 } else if (child.type === Edge) {
@@ -72,7 +70,7 @@ function(window, React, dagre) {
             var edges = g.edges().map(function(e) {
                 var edge = g.edge(e);
                 return React.cloneElement(edge.label, {
-                    
+                    points: edge.points
                 });
             });
 
@@ -102,7 +100,14 @@ function(window, React, dagre) {
 
     var Edge = React.createClass({
         render: function() {
-            return <path />;
+            var points = this.props.points;
+
+            var path = "M" + points[0].x + " " + points[0].y + " ";
+            for (var i = 1; i < points.length; i++) {
+                path += "L" + points[i].x + " " + points[i].y + " ";
+            }
+
+            return <path {...this.props} d={path} />;
         }
     });
 
