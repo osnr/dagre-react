@@ -47,17 +47,6 @@ function(window, React, dagre) {
             dagre.layout(g);
 
             // now render
-            var arrow;
-            if (arrow in this.props) {
-                arrow = this.props.arrow;
-
-            } else {
-                arrow = "<marker id=\"markerArrow\" markerWidth=\"6\" markerHeight=\"4\" \
-                             refx=\"5\" refy=\"2\" orient=\"auto\"> \
-                             <path d=\"M 0,0 V 4 L6,2 Z\" class=\"arrow\" /> \
-                         </marker>";
-            }
-
             // node svg elements
             var nodes = g.nodes().map(function(v) {
                 var node = g.node(v);
@@ -75,8 +64,7 @@ function(window, React, dagre) {
             });
 
             return (
-                React.createElement("svg", React.__spread({},  this.props), 
-                    React.createElement("defs", {dangerouslySetInnerHTML: {__html: arrow}}), 
+                React.createElement("g", React.__spread({},  this.props), 
                     nodes, 
                     edges
                 )
