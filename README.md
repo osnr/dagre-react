@@ -45,6 +45,10 @@ var Example = React.createClass({
 });
 ```
 
+produces something like this (with styles):
+
+<img src="example.png"></img>
+
 You can make the vertices' children arbitrary React components;
 at the moment, edges are just SVG paths.
 
