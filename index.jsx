@@ -7,7 +7,7 @@
         define(['react', 'dagre'], carry);
     } else {
         // Browser globals
-        root.DagreGraph = factory(root, modules[0], modules[1]);
+        root.DagreReact = factory(root, modules[0], modules[1]);
     }
 })(this,
    (typeof require === 'function' ?
@@ -18,16 +18,6 @@ function(window, React, dagre) {
     'use strict';
 
     var Graph = React.createClass({
-        /*
-           node = {
-               key: string
-               label: string
-           }
-           this.props.nodes = [node]
-
-           edge = [key1, key2]
-           this.props.edges = [edge]
-        */
         render: function() {
             // construct a new graph from scratch
             // because dagre mutates g for the layout
@@ -106,7 +96,7 @@ function(window, React, dagre) {
     };
 
     if (typeof module === 'undefined') {
-        window.DagreGraph = exports;
+        window.DagreReact = exports;
     } else {
         module.exports = exports;
     }

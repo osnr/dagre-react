@@ -1,6 +1,6 @@
-var Graph = DagreGraph.Graph;
-var Vertex = DagreGraph.Vertex;
-var Edge = DagreGraph.Edge;
+var Graph = DagreReact.Graph;
+var Vertex = DagreReact.Vertex;
+var Edge = DagreReact.Edge;
 
 var Example = React.createClass({
     render: function() {
